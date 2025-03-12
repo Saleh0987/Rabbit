@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+#root {
+    font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.bg-rabbit-red{
+  background-color: #ea2e0e;
+}
+
+.text-rabbit-red {
+  color: #ea2e0e;
+}
+
+button{
+  cursor: pointer;
+}
+
+
+  .bg-maincolor {
+      background-color: #433878;
+    }
+  
+    .text-maincolor {
+      color: #433878;
+    }
+
+ .heading {
+   @apply text-[30px] md:text-[35px] lg:text-[45px] xl:text-[50px] uppercase font-bold text-gray-900 md:leading-[4rem] leading-[3rem] text-center
+ }
+
+
+ /* Keyframes for the marquee animation */
+ @keyframes marquee {
+   0% {
+     transform: translateX(0%);
+   }
+
+   100% {
+     transform: translateX(-100%);
+   }
+ }
+
+/* Keyframes for the marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Styling for the Topbar container */
+.topbar {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #433878;
+  /* Replace with your desired color */
+  padding: .7rem 0;
+  font-size: 1rem;
+  /* 1xl equivalent */
+  color: #fff;
+}
+
+/* Styling for the moving content */
+.marquee {
+  display: inline-block;
+  animation: marquee 1200s linear infinite;
+  /* Slower duration: 60 seconds */
+}
+
+.blur-effect-theme {
+  @apply bg-white/80 bg-clip-padding text-black backdrop-filter backdrop-blur  opacity-100 z-[8000] shadow-sm shadow-slate-100 transition-all duration-300;
+}
+
