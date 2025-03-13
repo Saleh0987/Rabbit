@@ -6,14 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCart, mergeCart } from "../redux/slices/cartSlice";
 import { toast } from "sonner";
 import { FaEye, FaRegEyeSlash } from "react-icons/fa";
-
+import { FiLoader } from "react-icons/fi";
 const Login = () => {
 const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState(""); 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, guestId } = useSelector((state) => state.auth);
+  const { user, guestId, loading} = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart); 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -73,7 +73,7 @@ const [email, setEmail] = useState("");
    <form onSubmit={handleSubmit} className="w-full max-w-md bg-white p-8 rounded-lg border border-gray-300  shadow-sm">
     
       <div className="flex justify-center mb-6"> 
-      <h2 className="text-xl font-medium">Rabbit</h2> 
+      <h2 className="text-xl font-medium">Grafica Store</h2> 
       </div> 
       <h2 className="text-2xl font-bold text-center mb-6">Hey there! 👋</h2> 
       
@@ -115,8 +115,8 @@ const [email, setEmail] = useState("");
 
 
      <button type="submit"
-     className="w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800 transition">
-       Sign In
+     className="w-full flex justify-center items-center bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800 transition">
+       {loading ?  <FiLoader className="animate-spin text-white text-xl" />   : "Login"}
          </button>
          
         <p className="mt-6 text-center text-sm">
