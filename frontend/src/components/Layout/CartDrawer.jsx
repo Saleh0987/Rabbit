@@ -22,7 +22,7 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
     <>
       {/* Cart Drawer with spacing */}
       <div
-        className={`fixed bottom-4 right-4 w-[80] sm:w-1/2 md:w-[30rem] h-[600px] rounded-xl bg-white 
+        className={`fixed bottom-4 right-4 w-[80%] sm:w-1/2 md:w-[30rem] h-[600px] rounded-xl bg-white 
           shadow-lg transform transition-all duration-300 flex flex-col z-50
         ${drawerOpen ? "translate-x-0 opacity-100 scale-100" : "translate-x-full opacity-0 scale-95"}`}>
         {/* Close Button */}
