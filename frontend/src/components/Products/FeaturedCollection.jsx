@@ -10,7 +10,7 @@ const FeaturedCollection = () => {
     rounded-3xl shadow"> 
     
      {/* Left Content */} 
-    <div className="lg:w-1/2 p-8 text-center lg:text-left" data-aos="fade-right" data-aos-anchor-placement="top-center"> 
+    <div className="lg:w-1/2 p-8 text-center lg:text-left" data-aos="fade-up" data-aos-anchor-placement="top-center"> 
     <h2 className="text-lg font-semibold text-gray-700 mb-2"> 
     yilaaa bynaaaaaa
     </h2> 

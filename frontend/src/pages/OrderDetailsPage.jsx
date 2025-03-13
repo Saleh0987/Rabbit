@@ -98,7 +98,7 @@ const OrderDetailsPage = () => {
                 <tbody>
                   {orderDetails.orderItems.map((item) => (
                     <tr key={item.productId} className="border-b border-gray-300">
-                      <td className="py-2 px-4 flex items-center border-r border-gray-300">
+                      <td className="py-2 px-4 flex items-center flex-col gap-1 border-r border-gray-300">
                         <img src={item.image} alt={item.name} className="w-12 h-12 object-cover rounded-lg mr-4" />
                         <Link to={`/products/${item.productId}`} className="text-blue-500 hover:underline">
                           {item.name}

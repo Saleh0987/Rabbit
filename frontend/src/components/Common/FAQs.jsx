@@ -35,7 +35,8 @@ const FAQs = () => {
                   <motion.div
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}>
-                    <FaChevronDown className="text-md bg-maincolor text-white p-1 rounded-full"/>
+                    <FaChevronDown
+                      className={`text-md bg-gray-500 text-white p-1 rounded-full transition-all ${openIndex === index ? "bg-maincolor" : ""}`} />
                   </motion.div>
                 </button>
 
@@ -46,8 +47,7 @@ const FAQs = () => {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
+                      className="overflow-hidden">
                       <p className="text-gray-600 pb-4">{faq.answer}</p>
                     </motion.div>
                   )}

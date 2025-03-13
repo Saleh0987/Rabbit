@@ -44,7 +44,7 @@ const [searchTerm, setSearchTerm] = useState("");
      </form>)
      : 
      (<button onClick={handleSearchToggle}>
-      <HiMagnifyingGlass className="h-8 w-8 text-maincolor cursor-pointer"/>
+      <HiMagnifyingGlass className="h-6 w-6 sm:w-8 sm:h-8 text-maincolor cursor-pointer"/>
      </button>)}
     </div>
   )

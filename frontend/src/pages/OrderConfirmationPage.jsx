@@ -10,21 +10,20 @@ const OrderConfirmationPage = () => {
   const { checkout } = useSelector((state) => state.checkout);
 
   useEffect(() => {
-  const handleCheckout = async () => {
-    if (checkout && checkout._id) {
+    const handleCheckout = async () => {
       try {
-        await dispatch(clearCart());
-        localStorage.removeItem("cart");
+        if (checkout && checkout._id) {
+          await dispatch(clearCart());
+          localStorage.removeItem("cart");
+        } else {
+          navigate("/my-orders");
+        }
       } catch (error) {
-        console.error("Error clearing the cart:", error);
+        console.error("Error during order confirmation process:", error);
       }
-    } else {
-      navigate("/my-orders");
-    }
-  };
-
-  handleCheckout();
-}, [checkout, dispatch, navigate]);
+    };
+    handleCheckout();
+  }, [checkout, dispatch, navigate]);
 
 
   const calculateEstimatedDelivery = (createdAt) => {
@@ -58,8 +57,8 @@ const OrderConfirmationPage = () => {
       </div>
 
       <div className="mb-20">
-       {checkout.checkoutItems.map((item) => (
-        <div key={item.productId} className="flex justify-center mb-4">
+       {checkout.checkoutItems.map((item, index) => (
+        <div key={index} className="flex justify-center mb-4">
          <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-md mr-4" /> 
          
         <div>
@@ -72,7 +71,7 @@ const OrderConfirmationPage = () => {
         </div>
 
          <div className="ml-auto text-right">
-          <p className="text-md">${item.price}</p>
+          <p className="text-md">LE {item.price}</p>
          <p className="text-gray-600 text-sm">
            Qty: {item.quantity}
           </p>

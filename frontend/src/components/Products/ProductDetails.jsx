@@ -95,7 +95,7 @@ const ProductDetails = ({ productId }) => {
           <div className="flex flex-col md:flex-row">
       
             {/* left thumbnails */}
-            <div className="hidden md:flex flex-col space-y-4 mr-6" data-aos="fade-right">
+            <div className="hidden md:flex flex-col space-y-4 mr-6" data-aos="fade-down">
               {selectedProduct.images.map((image, index) => (
                 <img
                   key={index}
@@ -120,7 +120,7 @@ const ProductDetails = ({ productId }) => {
             </div>
 
             {/* Mobile Thumbnails */}
-            <div className="md:hidden flex overflow-x-scroll space-x-4 mb-4">
+            <div className="md:hidden flex overflow-x-scroll space-x-4 mb-4" data-aos="fade-up">
               {selectedProduct.images.map((image, index) => (
                 <img
                   key={index}
@@ -134,8 +134,8 @@ const ProductDetails = ({ productId }) => {
 
             {/* Right Side */}
             <div
-              className="md:w-1/2 md:ml-10" data-aos="fade-left">
-              <h1 className="text-2xl md:text-3xl font-semibold mb-4">
+              className="md:w-1/2 md:ml-10" data-aos="fade-up">
+              <h1 className="text-2xl md:text-3xl font-semibold mb-4" data-aos="fade-down">
                 {selectedProduct.name}
               </h1>
        
@@ -149,7 +149,7 @@ const ProductDetails = ({ productId }) => {
               </p>}
               </div>
               
-              <p className="text-gray-600 text-[16px] mb-4">{selectedProduct.description}</p>
+              <p className="text-gray-600 text-[16px] mb-4" data-aos="fade-down">{selectedProduct.description}</p>
               
               {selectedProduct.colors.length > 0 &&
               <div className="mb-4" data-aos="fade-up">
@@ -172,7 +172,7 @@ const ProductDetails = ({ productId }) => {
               }
 
               {selectedProduct.sizes.length > 0 && 
-              <div className="mb-4">
+              <div className="mb-4" data-aos="fade-up">
                 <p className="text-gray-700">Size:</p>
                 <div className="flex gap-2 mt-2">
                   {selectedProduct.sizes.map((size) => (
@@ -188,7 +188,7 @@ const ProductDetails = ({ productId }) => {
               }
 
               {/* Quantity */}
-              <div className="mb-6 ">
+              <div className="mb-6 " data-aos="fade-up">
                 <p className="text-gray-700">Quantity:</p>
                 <div
                   className="flex items-center space-x-4 mt-2 bg-white shadow-md border 
@@ -215,7 +215,7 @@ const ProductDetails = ({ productId }) => {
                 {isButtonDisabled ? <FiLoader className="inline-block animate-spin text-white text-xl" /> : "ADD TO CART"}
               </button>
 
-              <div className="mt-10 text-gray-700">
+              <div className="mt-10 text-gray-700" data-aos="fade-up">
                 <h3 className="text-xl font-bold mb-4">Characteristics:</h3>
                 <table className="w-full text-left text-sm text-gray-600">
                   <tbody>
