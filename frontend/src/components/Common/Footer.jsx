@@ -1,23 +1,23 @@
-import { FiPhoneCall } from "react-icons/fi";
-import { Link } from "react-router-dom";
-import logo from "../../assets/newww-10.png";
+import {FiPhoneCall} from "react-icons/fi";
+import {Link} from "react-router-dom";
+import {FaFacebook, FaInstagram, FaWhatsapp} from "react-icons/fa";
+import {MdAttachEmail} from "react-icons/md";
 import axios from "axios";
-import { useState } from "react";
-import { FaFacebook, FaInstagram, FaVoicemail, FaWhatsapp } from "react-icons/fa";
-import { MdAttachEmail } from "react-icons/md";
+import {useState} from "react";
+import logo from "../../assets/newww-10.png";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState({ type: "", text: "" });
+  const [message, setMessage] = useState({type: "", text: ""});
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/subscribe`,
-        { email }
+        {email}
       );
-      setMessage({ type: "success", text: response.data.message });
+      setMessage({type: "success", text: response.data.message});
       setEmail("");
     } catch (error) {
       setMessage({
@@ -25,122 +25,131 @@ const Footer = () => {
         text: error.response?.data?.message || "Something went wrong!",
       });
     } finally {
-      setTimeout(() => setMessage({ type: "", text: "" }), 2000);
+      setTimeout(() => setMessage({type: "", text: ""}), 2000);
     }
   };
 
+  const links = [
+    {
+      title: "Shop",
+      items: ["Products", "Stickers", "Mugs", "T-Shirts", "Logos"],
+    },
+    {title: "Support", items: ["Contact Us", "About Us", "FAQs", "Features"]},
+  ];
+
+  const socialLinks = [
+    {
+      href: "https://www.facebook.com/grafica.adv/",
+      icon: <FaFacebook className="text-blue-500 w-6 h-6" />,
+    },
+    {
+      href: "https://www.instagram.com/grafica_eg/",
+      icon: <FaInstagram className="text-pink-500 w-6 h-6" />,
+    },
+    {
+      href: "https://wa.me/201010759472",
+      icon: <FaWhatsapp className="text-green-400 w-6 h-6" />,
+    },
+  ];
+
   return (
-    <footer className="border-t border-gray-300 bg-gray-900 text-white py-12">
+    <footer className="border-t border-gray-300 bg-gray-900 text-white py-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 lg:px-0">
-        {/* Newsletter */}
         <div>
-          <Link to="/" className="flex items-center text-white mb-4">
-            <img src={logo} alt="logo" className="w-16 sm:w-32" />
+          <Link to="/" className="flex items-center mb-4 hover:scale-105 transition-all">
+            <img src={logo} alt="logo" className="w-24 sm:w-32" />
           </Link>
-          <p className="text-gray-500 mb-4">
+          <p className="text-gray-500">
             Delivering exceptional sticker solutions with quality and unique
-            design to make your stickers stand out.
+            design.
           </p>
         </div>
 
-        {/* Shop Links */}
-        <div>
-          <h1 className="text-2xl mb-6">Shop</h1>
-          <ul className="space-y-2">
-            {["Products", "Stickers", "Mugs", "T-Shirts", "Logos"].map(
-              (item) => (
+        {links.map(({title, items}) => (
+          <div key={title}>
+            <h3 className="text-2xl mb-6">{title}</h3>
+            <ul className="space-y-2">
+              {items.map((item) => (
                 <li key={item}>
-                  <Link to="#" className="hover:text-gray-500 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-500 transition-all"
+                  >
                     {item}
                   </Link>
                 </li>
-              )
-            )}
-          </ul>
-        </div>
+              ))}
+            </ul>
+          </div>
+        ))}
 
-        {/* Support Links */}
-        <div>
-          <h3 className="text-2xl mb-6">Support</h3>
-          <ul className="space-y-2">
-            {["Contact Us", "About Us", "FAQs", "Features"].map((item) => (
-              <li key={item}>
-                <Link to="#" className="hover:text-gray-500 transition-colors">
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Follow Us & Newsletter */}
         <div>
           <h3 className="text-2xl mb-6">Follow us</h3>
-          <div className="flex items-center space-x-4 mb-6">
-            <Link to={'https://www.facebook.com/grafica.adv/'} target='_blank'>
-              <FaFacebook className='w-6 h-6 text-blue-500 cursor-pointer' />
-            </Link>
-            <Link to={'https://www.instagram.com/grafica_eg/'} target='_blank'>
-              <FaInstagram className='w-6 h-6 text-pink-500 cursor-pointer' />
-            </Link>
-            <a href='https://wa.me/201010759472' target='_blank' rel='noopener noreferrer'>
-              <FaWhatsapp className='w-6 h-6 text-green-400 cursor-pointer' />
-            </a>
+          <div className="flex space-x-4 mb-6">
+            {socialLinks.map(({href, icon}, idx) => (
+              <a
+                key={idx}
+                href={href}
+                target="_blank"
+                className="hover:scale-125 transition-all"
+                rel="noopener noreferrer"
+              >
+                {icon}
+              </a>
+            ))}
           </div>
-          <p className="mb-8">
+          <p className="mb-8 hover:scale-105 transition-all">
             <FiPhoneCall className="inline-block mr-2" />
-            <a href='tel:+201202210771' className='text-secColor text-xl'>+201202210771</a>
+            <a href="tel:+201202210771" className="text-xl">
+              +201202210771
+            </a>
           </p>
-          <div className="flex items-center  mb-8">
-            <MdAttachEmail  className="inline-block mr-2" />
-            <a
-                href={`mailto:aya.magdy.artist@gmail.com`}
-                target={"_blank"}
-                title="Gmail"
-                className='block mb-1 text-white'
-                rel="noreferrer"
-              >aya.magdy.artist@gmail.com</a>
-          </div>
-          <form
-            onSubmit={handleSubscribe}
-            className="flex gap-2">
-            <div className="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
-              <div className="relative w-full"> <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"> </path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-              </div>
-                <input className="block p-3 pl-10 w-full text-sm text-white bg-gray-900 rounded-lg border 
-                border-gray-300 sm:rounded-none sm:rounded-l-lg focus: outline-none placeholder:text-white"
-                  placeholder="Enter your email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  className="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border 
-                  bg-blue-500 cursor-pointer border-primary-600 sm:rounded-none sm:rounded-r-lg focus:outline-none">
-                  Subscribe
-                </button>
-          </div>
-          </div>
-          </form>
-          {message.text && (
-            <div
-              className={`mt-4 p-3 text-sm rounded-lg ${
-                message.type === "success"
-                  ? "text-white bg-green-500"
-                  : "text-red-600 bg-red-100 border-red-300"
-              }`}
-            >
-              {message.text}
-            </div>
-          )}
+          <p className="mb-8 hover:scale-105 transition-all">
+            <MdAttachEmail className="inline-block mr-2" />
+            <a href="mailto:aya.magdy.artist@gmail.com" className="text-white">
+              aya.magdy.artist@gmail.com
+            </a>
+          </p>
         </div>
       </div>
-
-      {/* Footer Bottom */}
-      <div className="container mx-auto mt-12 px-4 lg:px-0 border-t border-gray-200 pt-6">
-        <p className="text-white text-sm text-center">
+      <div className="max-w-3xl mx-auto p-4">
+        <form onSubmit={handleSubscribe} className="flex gap-2">
+          <input
+            className="p-3 w-full bg-gray-900 border rounded-lg placeholder-white focus:outline-none"
+            placeholder="Enter your email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button
+            type="submit"
+            class="relative inline-flex h-12 active:scale-95 transistion overflow-hidden rounded-lg p-[1px] focus:outline-none">
+            <span
+              class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] 
+               bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#FFA500_50%,#000000_100%)]"
+            ></span>
+            <span
+              class="inline-flex h-full w-full cursor-pointer items-center justify-center 
+              rounded-lg bg-maincolor px-7 text-xl font-medium text-white backdrop-blur-3xl gap-2 undefined"
+            >
+              Subscribe
+            </span>
+          </button>
+        </form>
+        {message.text && (
+          <div
+            className={`mt-4 p-3 rounded-lg ${
+              message.type === "success"
+                ? "bg-green-500 text-white"
+                : "bg-red-100 text-red-600"
+            }`}
+          >
+            {message.text}
+          </div>
+        )}
+      </div>
+      <div className="mt-4 border-t pt-6 text-center">
+        <p className="text-sm">
           &copy; 2025, Grafica Store. All Rights Reserved.
         </p>
       </div>

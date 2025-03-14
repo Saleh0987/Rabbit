@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HiOutlineUser, HiOutlineShoppingBag, HiBars3BottomLeft } from 'react-icons/hi2';
+import { HiOutlineUser, HiOutlineShoppingBag, HiBars3BottomLeft, HiBars3BottomRight } from 'react-icons/hi2';
 import CartDrawer from "../Layout/CartDrawer";
 import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
@@ -47,12 +47,12 @@ const Navbar = () => {
           isScrolled
             ? "fixed top-[3rem] w-full bg-white shadow-md z-40"
             : "relative bg-transparent"
-        } transition-all duration-300`}
-      >
+          } transition-all duration-300`}>
+        
         <div className="container mx-auto flex items-center justify-between py-4 px-6">
           {/* Nav Drawer Toggle */}
           <button onClick={toggleNavDrawer}>
-            <HiBars3BottomLeft className="h-6 w-6 sm:w-8 sm:h-8 text-maincolor" />
+            <HiBars3BottomLeft className="h-6 w-6 sm:w-8 sm:h-8  text-maincolor" />
           </button>
 
           {/* Logo */}
@@ -125,6 +125,7 @@ const Navbar = () => {
             <div className="overflow-hidden">
               <Searchbar />
             </div>
+
           </div>
         </div>
       </nav>
@@ -145,8 +146,7 @@ const Navbar = () => {
   <div className="flex justify-start p-4">
     <button
       onClick={toggleNavDrawer}
-      className="cursor-pointer border border-purple-500 p-1 rounded-full"
-    >
+      className="cursor-pointer border border-purple-500 p-1 rounded-full">
       <IoMdClose className="h-6 w-6 text-gray-600 hover:h-8 hover:w-8 transition-all" />
     </button>
   </div>

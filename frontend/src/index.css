@@ -1,12 +1,16 @@
 @import "tailwindcss";
 
 #root {
-    font-family: "Josefin Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
-.bg-rabbit-red{
+button {
+  cursor: pointer;
+}
+
+.bg-rabbit-red {
   background-color: #ea2e0e;
 }
 
@@ -14,34 +18,48 @@
   color: #ea2e0e;
 }
 
-button{
-  cursor: pointer;
+.bg-maincolor {
+  background-color: #433878;
 }
 
+.text-maincolor {
+  color: #433878;
+}
 
-  .bg-maincolor {
-      background-color: #433878;
-    }
-  
-    .text-maincolor {
-      color: #433878;
-    }
+.bg-secColor {
+  color: #7e60bf;
+}
 
- .heading {
-   @apply text-[30px] md:text-[35px] lg:text-[45px] xl:text-[50px] uppercase font-bold text-gray-900 md:leading-[4rem] leading-[3rem] text-center
- }
+.text-secColor {
+  color: #7e60bf;
+}
 
+.bg-blueColor {
+  color: #172554;
+}
 
- /* Keyframes for the marquee animation */
- @keyframes marquee {
-   0% {
-     transform: translateX(0%);
-   }
+.text-blueColor {
+  color: #172554;
+}
 
-   100% {
-     transform: translateX(-100%);
-   }
- }
+.bg-whiteColor {
+  color: #e4b1f0;
+}
+
+.text-whiteColor {
+  color: #e4b1f0;
+}
+
+.heading {
+  @apply text-[30px] md:text-[35px] lg:text-[45px] xl:text-[50px] uppercase font-bold 
+  text-gray-900 md:leading-[4rem] leading-[3rem] text-center;
+}
+
+.blur-effect-theme {
+  @apply bg-white/80 bg-clip-padding text-black backdrop-filter backdrop-blur  
+  opacity-100 z-[8000] shadow-sm shadow-slate-100 transition-all duration-300;
+}
+
 
 /* Keyframes for the marquee animation */
 @keyframes marquee {
@@ -54,13 +72,21 @@ button{
   }
 }
 
-/* Styling for the Topbar container */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .topbar {
   overflow: hidden;
   white-space: nowrap;
   background-color: #433878;
-  /* Replace with your desired color */
-  padding: .7rem 0;
+  padding: 0.7rem 0;
   font-size: 1rem;
   /* 1xl equivalent */
   color: #fff;
@@ -73,7 +99,11 @@ button{
   /* Slower duration: 60 seconds */
 }
 
-.blur-effect-theme {
-  @apply bg-white/80 bg-clip-padding text-black backdrop-filter backdrop-blur  opacity-100 z-[8000] shadow-sm shadow-slate-100 transition-all duration-300;
-}
 
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
