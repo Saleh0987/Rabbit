@@ -56,7 +56,10 @@ const Footer = () => {
     <footer className="border-t border-gray-300 bg-gray-900 text-white py-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 lg:px-0">
         <div>
-          <Link to="/" className="flex items-center mb-4 hover:scale-105 transition-all">
+          <Link
+            to="/"
+            className="flex items-center mb-4 hover:scale-105 transition-all"
+          >
             <img src={logo} alt="logo" className="w-24 sm:w-32" />
           </Link>
           <p className="text-gray-500">
@@ -71,10 +74,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {items.map((item) => (
                 <li key={item}>
-                  <Link
-                    to="#"
-                    className="hover:text-gray-500 transition-all"
-                  >
+                  <Link to="#" className="hover:text-gray-500 transition-all">
                     {item}
                   </Link>
                 </li>
@@ -123,13 +123,14 @@ const Footer = () => {
           />
           <button
             type="submit"
-            class="relative inline-flex h-12 active:scale-95 transistion overflow-hidden rounded-lg p-[1px] focus:outline-none">
+            className="relative inline-flex h-12 active:scale-95 transistion overflow-hidden rounded-lg p-[1px] focus:outline-none"
+          >
             <span
-              class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] 
+              className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] 
                bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#FFA500_50%,#000000_100%)]"
             ></span>
             <span
-              class="inline-flex h-full w-full cursor-pointer items-center justify-center 
+              className="inline-flex h-full w-full cursor-pointer items-center justify-center 
               rounded-lg bg-maincolor px-7 text-xl font-medium text-white backdrop-blur-3xl gap-2 undefined"
             >
               Subscribe

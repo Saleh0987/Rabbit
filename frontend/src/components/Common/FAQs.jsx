@@ -101,13 +101,13 @@ const FAQs = () => {
           {/* Contact Button */}
           <div className="mt-4">
             <Link to="#" className="">
-              <button class="relative inline-flex h-12 active:scale-95 transistion overflow-hidden rounded-lg p-[1px] focus:outline-none">
+              <button className="relative inline-flex h-12 active:scale-95 transistion overflow-hidden rounded-lg p-[1px] focus:outline-none">
                 <span
-                  class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] 
+                  className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] 
                bg-[conic-gradient(from_90deg_at_50%_50%,#FFD700_0%,#FFA500_50%,#000000_100%)]"
                 ></span>
                 <span
-                  class="inline-flex h-full w-full cursor-pointer items-center justify-center 
+                  className="inline-flex h-full w-full cursor-pointer items-center justify-center 
               rounded-lg bg-maincolor px-7 text-xl font-medium text-white backdrop-blur-3xl gap-2 undefined"
                 >
                   CONTACT US
