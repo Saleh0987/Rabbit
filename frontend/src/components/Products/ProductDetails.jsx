@@ -249,13 +249,13 @@ const ProductDetails = ({productId}) => {
                 </div>
               </div>
 
-
               <button
                 onClick={handleAddToCart}
                 disabled={isButtonDisabled}
                 className="px-4 py-1.5 flex items-center justify-center text-xl space-x-2 rounded-md text-white  w-full mb-4
-                bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-purple-600 hover:to-purple-800 
-                transition-all duration-300 transform hover:scale-110 hover:rotate-2 shadow-lg hover:shadow-indigo-500/50 group">
+                bg-gradient-to-r from-[#7e60bf] to-[#433878] hover:from-[#433878] hover:to-[#7e60bf]
+                transition-all duration-300 transform hover:scale-110 hover:rotate-2 shadow-lg hover:shadow-indigo-500/50 group"
+              >
                 {isButtonDisabled ? (
                   <FiLoader className="inline-block animate-spin text-white text-xl" />
                 ) : (

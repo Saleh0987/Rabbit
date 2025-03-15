@@ -154,19 +154,24 @@ const NewArrivals = () => {
 
               <Link
                 to={`/products/${product._id}`}
-                className="flex items-center p-2 bg-white justify-between rounded-br-md rounded-bl-md">
+                className="flex items-center p-2 bg-white justify-between rounded-br-md rounded-bl-md"
+              >
                 <div className="">
                   <h4 className="font-bold">{truncateName(product.name)}</h4>
                   <p className="mt-1 text-md text-maincolor text-start">
-                    LE <span className="text-red-600 font-bold">{product.price}</span>
+                    LE{" "}
+                    <span className="text-red-600 font-bold">
+                      {product.price}
+                    </span>
                   </p>
                 </div>
 
                 <div>
                   <button
                     className="px-4 py-1.5 flex items-center space-x-2 rounded-md text-white 
-                      bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-purple-600 hover:to-purple-800 
-                      transition-all duration-300 transform hover:scale-110 hover:rotate-2 shadow-lg hover:shadow-indigo-500/50 group">
+                      bg-gradient-to-r from-[#7e60bf] to-[#433878] hover:from-[#433878] hover:to-[#7e60bf]
+                      transition-all duration-300 transform hover:scale-110 hover:rotate-2 shadow-lg hover:shadow-indigo-500/50 group"
+                  >
                     <span className="font-semibold tracking-wide">Buy</span>
 
                     <span className="animate-pulse group-hover:animate-ping">

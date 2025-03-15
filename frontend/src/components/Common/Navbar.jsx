@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import { useSelector } from "react-redux";
 import logo from "../../assets/newww-05.png";
+import logoSm from "../../assets/newww-06.png";
+
 import Searchbar from "./SearchBar/Searchbar";
 
 
