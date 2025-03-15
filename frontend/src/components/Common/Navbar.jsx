@@ -63,7 +63,7 @@ const Navbar = () => {
               <img
                 src={logo}
                 alt="logo"
-                className="w-[8rem] h-[4rem] sm:w-[12rem] sm:h-[5rem]"
+                className="w-[10rem] h-[5rem] sm:w-[12rem] sm:h-[5rem]"
               />
             </Link>
           </div>
